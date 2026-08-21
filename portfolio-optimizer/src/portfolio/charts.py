@@ -26,11 +26,15 @@ POSITIVE, NEGATIVE, NEUTRAL = "#dc2626", "#2563eb", "#94a3b8"
 
 def _style(fig: go.Figure, height: int = 380, title: str | None = None) -> go.Figure:
     """모든 차트에 공통 레이아웃을 입힌다."""
+    # 제목은 컨테이너 최상단에, 범례는 그 아래 그래프 바로 위에 둔다. 둘 다
+    # 여백(margin) 안에 그려지므로 위쪽 여백을 충분히 주지 않으면 겹친다.
     fig.update_layout(
-        title=title,
+        title=dict(text=title, yref="container", y=0.97, yanchor="top", x=0, xanchor="left")
+        if title
+        else None,
         font=dict(family=FONT_FAMILY, size=13),
         height=height,
-        margin=dict(l=20, r=20, t=50 if title else 30, b=20),
+        margin=dict(l=20, r=20, t=88 if title else 40, b=20),
         hovermode="x unified",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",

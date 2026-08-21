@@ -258,7 +258,12 @@ def render_weights_tab(result) -> None:
         frame["연 변동성(%)"] = (
             result.asset_points["변동성"].reindex(frame.index) * 100
         ).round(1)
-        st.dataframe(frame, width="stretch")
+        st.dataframe(
+            frame.style.format(
+                {"비중(%)": "{:.2f}", "연 기대수익률(%)": "{:.1f}", "연 변동성(%)": "{:.1f}"}
+            ),
+            width="stretch",
+        )
         effective = result.optimal.diversification.get("유효종목수", float("nan"))
         st.caption(
             f"실질 분산 정도: 종목 {len(result.optimal.weights)}개를 담았지만 "
