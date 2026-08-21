@@ -1,0 +1,21 @@
+[project]
+name = "portfolio-optimization-analyzer"
+version = "1.0.0"
+description = "마코위츠 포트폴리오 최적화 웹 대시보드 (한국·미국 주식)"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+addopts = "-q --strict-markers"
+filterwarnings = [
+    "ignore::DeprecationWarning:streamlit.*",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501"]

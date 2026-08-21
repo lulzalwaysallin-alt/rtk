@@ -1,0 +1,19 @@
+# 화면 기본 설정. 본부장님 PC에서 그대로 쓰입니다.
+
+[theme]
+base = "light"
+primaryColor = "#2563eb"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f1f5f9"
+textColor = "#0f172a"
+
+[server]
+headless = false          # 실행하면 브라우저가 자동으로 열립니다
+fileWatcherType = "none"  # 불필요한 자동 새로고침을 끕니다
+
+[browser]
+gatherUsageStats = false  # 사용 통계를 외부로 보내지 않습니다
+
+[client]
+toolbarMode = "minimal"   # 개발자용 메뉴를 숨깁니다
+showErrorDetails = false  # 오류 시 코드 대신 안내 문구만 보여줍니다
